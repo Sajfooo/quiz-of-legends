@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { useConfig } from "./store/Store";
+import useStore from "./store/useStore";
 import { AbilityTypes } from "./enum/AbilityTypes";
 import { fetchChampionData, fetchChampions, getImageAndData } from "./api/ddragon";
 
 function App() {
     const [message, setMessage] = useState("Hello World! I'm automatic now :)");
-    const [imageUrl, setImageUrl] = useState(null);
-    const { config, updateConfig } = useConfig();
-    const version = config.ddragon.version;
-    const language = config.ddragon.language;
-    
+    const version = useStore((state) => state.ddragon.version);
+    const language = useStore((state) => state.ddragon.language);
+    const imageUrl = useStore((state) => state.imageUrl);
+    const setImageUrl = useStore((state) => state.setImageUrl);
     function getRandomElementFromList(list) {
         if (!Array.isArray(list) || list.length === 0) {
             throw new Error("Input must be a non-empty array");
