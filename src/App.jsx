@@ -4,7 +4,7 @@ import { AbilityTypes } from "./enum/AbilityTypes";
 import { fetchChampionData, fetchChampions, getImageAndData } from "./api/ddragon";
 
 function App() {
-    const [message, setMessage] = useState("Hello World!");
+    const [message, setMessage] = useState("Hello World! I'm automatic now");
     const [imageUrl, setImageUrl] = useState(null);
     const { config, updateConfig } = useConfig();
     const version = config.ddragon.version;
